@@ -1,0 +1,14 @@
+{
+  "name": "cocobambu",
+  "version": "1.0.0",
+  "description": "A test project for Coco Bambu restaurant",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luiz Eduardo",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
