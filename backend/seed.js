@@ -37,6 +37,10 @@ let recipePromise = Recipe.create([
          '1 chávena de arroz',
          '1 porção de coentros'
       ],
+      picture: {
+         thumb: '/assets/recipes/prato-arroz-marisco-peq.jpg',
+         cover: '/assets/recipes/prato-arroz-grande.jpg'
+      },
       duration: 25,
       steps: [
          {
@@ -82,6 +86,10 @@ let recipePromise = Recipe.create([
          '4 bananas em fatias',
          '1kg de camarão descascado'
       ],
+      picture: {
+         thumb: '/assets/recipes/prato-moqueca-peq.jpg',
+         cover: '/assets/recipes/prato-moqueca-grande.jpg'
+      },
       duration: 40,
       steps: [
          {
@@ -126,6 +134,10 @@ let recipePromise = Recipe.create([
          '1 maço de manjericão',
          '30 gr manteiga',
       ],
+      picture: {
+         thumb: '/assets/recipes/prato-fruto-peq.jpg',
+         cover: '/assets/recipes/prato-fruto-grande.jpg'
+      },
       duration: 30,
       steps: [
          {
@@ -168,6 +180,10 @@ let recipePromise = Recipe.create([
          '1 maço de tomilho',
          '30 gr manteiga'
       ],
+      picture: {
+         thumb: '/assets/recipes/prato-massa-peq.jpg',
+         cover: '/assets/recipes/prato-massa-grande.jpg'
+      },
       duration: 18,
       steps: [
          {
@@ -215,6 +231,10 @@ let recipePromise = Recipe.create([
          '2 pimentões verdes bem picadinhos',
          '2 colheres (sopa) de azeite de dendê'
       ],
+      picture: {
+         thumb: '/assets/recipes/prato-bobo-peq.jpg',
+         cover: '/assets/recipes/prato-bobo-grande.jpg'
+      },
       duration: 50,
       steps: [
          {
