@@ -2,7 +2,7 @@
 let bcrypt = require('bcrypt'),
     mongoose = require('mongoose'),
     jwt = require('jsonwebtoken'),
-    app = require('../../app');
+    config = require('../../config');
 let Schema = mongoose.Schema;
 
 
@@ -12,14 +12,12 @@ let UserSchema = new Schema({
 });
 
 UserSchema.statics.validateCredentials = function (username, password, cb) {
-   this.findOne({username: 'admin'}, function (err, found) {
-      console.log('found', found);
+   this.findOne({username: username}, function (err, found) {
       if (!found) {
          cb(err);
          return;
       }
       found.validatePassword(password, function (err, result) {
-         console.log('result', result);
          if (result) {
             found.password = undefined;
             found.generateToken(cb);
@@ -38,14 +36,13 @@ UserSchema.methods.validatePassword = function (input, cb) {
 };
 UserSchema.methods.generateToken = function (cb) {
    let data = this.toObject();
-   let token = jwt.sign(data, app.get('jwt_key'), {
+   let token = jwt.sign(data, config.jwt_key, {
       expiresIn: '24h'
    });
    let payload = {
       data,
       token
    };
-   console.log('payload', payload);
    cb(payload);
 };
 
