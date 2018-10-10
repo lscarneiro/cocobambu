@@ -3,10 +3,12 @@ const app = module.exports = express();
 const port = process.env.PORT || 3000;
 
 let mongoose = require('mongoose'),
-    bodyParser = require('body-parser')
+    bodyParser = require('body-parser'),
+    cors = require('cors');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(cors({origin: '*'}));
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/cocobambu');
