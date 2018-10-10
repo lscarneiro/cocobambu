@@ -12,11 +12,11 @@ const missing_data_error = {
 };
 exports.authenticate = function (req, res) {
    if (!req.body.username || !req.body.password) {
-      return res.json(missing_data_error);
+      return res.status(400).json(missing_data_error);
    }
    User.validateCredentials(req.body.username, req.body.password, function (found) {
       if (!found) {
-         return res.json(mismatch_error);
+         return res.status(403).json(mismatch_error);
       }
       return res.send(found);
    });
