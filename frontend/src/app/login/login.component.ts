@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {LoginService} from "./login.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {AccessTokenService} from "../core/access-token.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private loginService: LoginService,
-              private accessTokenService: AccessTokenService) {
+              private accessTokenService: AccessTokenService,
+              private router: Router) {
   }
 
   formGroup: FormGroup;
@@ -23,6 +25,10 @@ export class LoginComponent implements OnInit {
       username: [null],
       password: [null],
     });
+    let token = this.accessTokenService.get();
+    if (!!token) {
+      this.router.navigateByUrl('/recipes');
+    }
   }
 
   login() {
@@ -33,6 +39,7 @@ export class LoginComponent implements OnInit {
     let login = Object.assign({}, this.formGroup.value);
     this.loginService.authenticate(login).subscribe(data => {
       this.accessTokenService.set(data.token);
+      this.router.navigateByUrl('/recipes');
     }, err => {
       if (err instanceof HttpErrorResponse) {
         if (err.status == 400) {

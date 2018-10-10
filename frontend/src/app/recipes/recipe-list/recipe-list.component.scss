@@ -1,0 +1,39 @@
+.navbar {
+  background-color: #393939;
+}
+.recipe {
+  img {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+.btn-recipe {
+  border-radius: 50%;
+  background-color: orangered;
+  color: #fff;
+  padding: 1rem;
+  height: 5rem;
+  width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  &:hover {
+    background-color: lighten(orangered, 10%);
+  }
+}
+
+.btn-logout {
+  text-align: center;
+  &:hover {
+    text-decoration: none;
+  }
+  img {
+    height: 1.5rem;
+    border: 1px solid #979797;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,36 @@
+<nav class="navbar">
+  <span class="navbar-brand"><img src="/assets/img/logo-coco-bambu-mini.png"/></span>
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a href="javascript:void(0)" (click)="logout()" class="nav-link text-light btn-logout">
+        <img src="/assets/img/icon-login.png"/>
+        Sair
+      </a>
+    </li>
+  </ul>
+</nav>
+<div class="container-fluid">
+  <div class="row py-3">
+    <div class="col">
+      Últimos pedidos
+    </div>
+  </div>
+  <div class="row py-3 recipe" *ngFor="let recipe of recipes">
+    <div class="col-3 col-lg-2 d-flex align-items-center">
+      <img src="{{recipe.picture.thumb}}"/>
+    </div>
+    <div class="col-7 col-lg-8 d-flex align-items-center">
+      <div class="row">
+        <div class="col-12">
+          {{recipe.name}}
+        </div>
+        <div class="col-xs-10 col-md-8 col-lg-8">
+          <small>{{recipe.description}}</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-2 d-flex align-items-center justify-content-center">
+      <span class="btn-recipe" (click)="goToRecipe(recipe)">Ver receita</span>
+    </div>
+  </div>
+</div>
