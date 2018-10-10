@@ -35,12 +35,12 @@ UserSchema.methods.validatePassword = function (input, cb) {
    });
 };
 UserSchema.methods.generateToken = function (cb) {
-   let data = this.toObject();
-   let token = jwt.sign(data, config.jwt_key, {
+   let user = this.toObject();
+   let token = jwt.sign(user, config.jwt_key, {
       expiresIn: '24h'
    });
    let payload = {
-      data,
+      user,
       token
    };
    cb(payload);
