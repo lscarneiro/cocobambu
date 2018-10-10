@@ -6,12 +6,18 @@ const mismatch_error = {
    error: 'mismatch',
    message: "Usuário/Senha inválido(s)"
 };
+const missing_data_error = {
+   error: 'missing_data',
+   message: "Necessário informar usuário e senha"
+};
 exports.authenticate = function (req, res) {
-   User.validateCredentials('admin', 'admin', function (found) {
+   if (!req.body.username || !req.body.password) {
+      return res.json(missing_data_error);
+   }
+   User.validateCredentials(req.body.username, req.body.password, function (found) {
       if (!found) {
-         res.json(mismatch_error);
-         return;
+         return res.json(mismatch_error);
       }
-      res.send(found);
+      return res.send(found);
    });
 };
