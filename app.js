@@ -11,8 +11,10 @@ app.use(bodyParser.json());
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/cocobambu');
 
-let loginRoutes = require('./api/routes/loginRoutes');
+let loginRoutes = require('./api/routes/loginRoutes'),
+    recipeRoutes = require('./api/routes/recipeRoutes');
 
 loginRoutes(app);
+recipeRoutes(app);
 
 app.listen(port, () => console.log(`Coco Bambu app listening on port ${port}!`));
