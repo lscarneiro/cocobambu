@@ -1,0 +1,19 @@
+:host {
+  background: url('/assets/img/img-bg-login.jpg') no-repeat fixed center;
+  background-size: cover;
+  display: block;
+  height: 100vh;
+  color: #fff;
+
+  > .container-fluid {
+    height: 100%;
+    > .row {
+      height: 100%;
+    }
+
+    .btn-login {
+      background-color: orangered;
+      color: #fff;
+    }
+  }
+}
