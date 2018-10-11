@@ -28,7 +28,7 @@ export class RecipeListComponent implements OnInit {
   }
 
   goToRecipe(recipe: Recipe) {
-
+    this.router.navigateByUrl(`/recipes/${recipe._id}`);
   }
 
   logout() {
