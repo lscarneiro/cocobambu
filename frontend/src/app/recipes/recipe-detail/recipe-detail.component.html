@@ -1,3 +1,69 @@
-<p>
-  recipe-detail works!
-</p>
+<div class="container-fluid">
+  <div class="row recipe-cover" [style.background-image]="getBackgroundUrl()">
+    <span class="btn-back" (click)="goBack()">
+      <img src="/assets/img/icon-back.png"/> Voltar
+    </span>
+    <div class="recipe-title">
+      <div></div>
+      <p><strong>{{recipe?.name}}</strong></p>
+      <p class="col-xs-12 col-lg-6 px-0">
+        <small>{{recipe?.description}}</small>
+      </p>
+    </div>
+    <div class="recipe-time d-flex align-items-center">
+      <img src="/assets/img/icon-time.png"/>
+      <div>
+        <p class="m-0">Tempo de preparo</p>
+        <p class="m-0"><strong>{{recipe?.duration}} minutos</strong></p>
+      </div>
+
+    </div>
+  </div>
+  <div class="row py-3 recipe-ingredients">
+    <div class="col-12">
+      <strong class="">Ingredientes</strong>
+    </div>
+    <div class="col-12">
+      <ul>
+        <li class="ingredient d-flex align-items-center" *ngFor="let ingredient of recipe?.ingredients">
+          <app-tick (onTickChange)="onIngredientChanged($event)" [enabled]="!recipeStarted"></app-tick>
+          <span>{{ingredient}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row py-3 recipe-steps">
+    <div class="col-12">
+      <strong class="">Modo de Preparo</strong>
+    </div>
+    <div class="col-12">
+      <ul>
+        <li class="ingredient d-flex align-items-start" *ngFor="let step of recipe?.steps">
+          <app-tick (onTickChange)="onStepChanged($event)" [enabled]="recipeStarted"></app-tick>
+          <div>
+            <p class="m-0"><strong>Passo {{step.order}}</strong></p>
+            <p class="step-descriptiom">{{step.description}}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row py-3 recipe-progress">
+    <div class="col-8 col-md-4">
+      <strong>Status {{recipeCompletion}}% pronto</strong>
+      <div class="progress-bar">
+        <div class="progress-bar-completion" [style.width]="recipeCompletion+ '%'"></div>
+      </div>
+    </div>
+    <div class="col-4 col-md-2 offset-0 offset-md-6">
+      <button class="btn btn-block btn-start" [disabled]="!canStartRecipe" (click)="startRecipe()"
+              *ngIf="!recipeStarted">
+        Iniciar preparo
+      </button>
+      <button class="btn btn-block btn-stop" [disabled]="recipeCompletion < 100" (click)="goBack()"
+              *ngIf="recipeStarted">
+        Finalizar
+      </button>
+    </div>
+  </div>
+</div>

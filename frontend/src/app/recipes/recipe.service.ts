@@ -25,4 +25,13 @@ export class RecipeService {
       }
     });
   }
+
+  findById(id: string): Observable<Recipe> {
+    let token = this.accessTokenService.get();
+    return this.http.get<Recipe>(`${this.apiUrl}/recipes/${id}`, {
+      headers: {
+        authorization: token
+      }
+    });
+  }
 }

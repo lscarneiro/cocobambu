@@ -1,0 +1,96 @@
+.recipe-cover {
+  background: no-repeat center;
+  background-size: cover;
+  height: 30vh;
+  position: relative;
+  &:after {
+    background: linear-gradient(to top, transparentize(#000, .15), transparent);
+    content: ' ';
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+
+  .btn-back {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .recipe-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    z-index: 2;
+    padding: 1rem;
+    p {
+      margin-bottom: 0;
+    }
+    strong {
+      font-size: 2rem;
+    }
+  }
+  .recipe-time {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+    img {
+      margin-right: 1rem;
+    }
+  }
+}
+
+.recipe-ingredients {
+  background-color: #f6f4f5;
+  ul {
+    list-style: none;
+    padding-left: 0;
+    li {
+      padding: .5rem 0;
+    }
+  }
+}
+
+.recipe-steps {
+  ul {
+    list-style: none;
+    padding-left: 0;
+    li {
+      padding: .5rem 0;
+      .step-descriptiom {
+        white-space: pre-wrap;
+      }
+    }
+  }
+}
+
+.recipe-progress {
+  background-color: #f2f0f1;
+  .btn-start {
+    color: #fff;
+    background-color: orangered;
+  }
+  .btn-stop {
+    color: #fff;
+    background-color: #66d701;
+  }
+
+  .progress-bar {
+    height: .5rem;
+    width: 100%;
+    background-color: #fff;
+    .progress-bar-completion {
+      height: 100%;
+      background-color: orangered;
+      width: 0%;
+    }
+  }
+}
