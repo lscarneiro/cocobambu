@@ -1,0 +1,47 @@
+.tick {
+  margin-right: 1rem;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-transition: background-color .15s linear;
+  transition: background-color .15s linear;
+  &:after {
+    width: .5rem;
+    height: 1rem;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 2px;
+    border-color: transparent #fff #fff transparent;
+
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    content: ' ';
+    margin-right: .7rem;
+    margin-bottom: .25rem;
+    -webkit-transition: -webkit-transform .3s;
+    transition: transform .3s;
+    opacity: 0;
+  }
+  &.active {
+    background-color: #66d701;
+    &:after {
+      -webkit-transform: rotate(40deg);
+      transform: rotate(40deg);
+      opacity: 1;
+    }
+  }
+  &.disabled {
+    cursor: default;
+    background-color: #eeeeee;
+  }
+  &.active.disabled {
+    background-color: rgba(102, 215, 1, 0.4);
+  }
+}
