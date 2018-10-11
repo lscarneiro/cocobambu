@@ -15,5 +15,37 @@
       background-color: orangered;
       color: #fff;
     }
+
+    input {
+      padding-left: 2rem;
+    }
+    .login {
+      position: relative;
+      &:after {
+        content: ' ';
+        position: absolute;
+        height: 2.5rem;
+        width: 1.75rem;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        background: url(/assets/img/icon-login.png) no-repeat center;
+        background-size: contain;
+      }
+    }
+    .password {
+      position: relative;
+      &:after {
+        content: ' ';
+        position: absolute;
+        height: 2.5rem;
+        width: 1.75rem;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        background: url(/assets/img/icon-key.png) no-repeat center;
+        background-size: contain;
+      }
+    }
   }
 }
